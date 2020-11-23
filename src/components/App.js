@@ -1,6 +1,7 @@
 import React from "react";
 import "../stylesheet/index.scss";
 import getData from "../services/getData";
+import Header from "./Header";
 import CharacterList from "./CharacterList";
 
 
@@ -29,6 +30,7 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <div className="App">
+        <Header />
         <CharacterList charactersData={this.state.charactersData}/>
       </div>
     );

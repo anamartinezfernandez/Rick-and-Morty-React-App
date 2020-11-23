@@ -10,6 +10,9 @@ class CharacterCard extends React.Component {
 
     return (
       <>
+        <img src={this.props.character.photo} rel="" alt=""/>
+        <h1>{this.props.character.name}</h1>
+        <h2>{this.props.character.species}</h2>
       </>
     );
   }
