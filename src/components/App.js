@@ -1,6 +1,7 @@
 import React from "react";
 import "../stylesheet/index.scss";
 import getData from "../services/getData";
+import CharacterList from "./CharacterList";
 
 
 
@@ -28,8 +29,7 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <div className="App">
-        
-        
+        <CharacterList charactersData={this.state.charactersData}/>
       </div>
     );
   }
