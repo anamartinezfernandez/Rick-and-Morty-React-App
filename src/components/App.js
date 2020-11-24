@@ -5,8 +5,9 @@ import getData from "../services/getData";
 
 import Header from "./Header";
 import Footer from "./Footer";
-
 import CharacterList from "./CharacterList";
+import CharacterDetail from "./CharacterDetail";
+import { Route, Switch } from "react-router-dom";
 
 
 
@@ -19,6 +20,7 @@ class App extends React.Component {
         nameFilter: ""
       };
     this.handleFilter = this.handleFilter.bind(this);
+    this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
   } 
 
 
@@ -43,6 +45,7 @@ class App extends React.Component {
 
   filteredCharacters(){
     const charactersData = this.state.charactersData;
+
     const nameFilter = this.state.nameFilter;
 
     console.log(nameFilter);
@@ -54,6 +57,23 @@ class App extends React.Component {
     })
   }
 
+  renderCharacterDetail(props){
+    console.log("entro en detail");
+    console.log(props.match.params);
+    console.log(props.match.params.characterId);
+    const charactersData = this.state.charactersData;
+    console.log(charactersData);
+
+    const dataObject = charactersData.find((characterData) => 
+    characterData.id === props.match.params.characterId);
+    console.log(props);
+    
+      return (<CharacterDetail data={dataObject}/>)
+  }
+    
+    /*  Aquí poner un if else para poner si el producto es encontrado o no encontrado */
+ /*  Devolverle las propiedades por separado */
+
  
 
   render() {
@@ -61,10 +81,16 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <div className="page">
-        <Header  />
-        <main>
-          <CharacterList charactersData={this.state.charactersData} handleFilter={this.handleFilter}/>
-        </main>
+        <Switch>
+            <Route path="/character-detail/:characterId" render={this.renderCharacterDetail} ></Route>
+            <Route exact path="/">
+              <Header  />
+              <main>
+                <CharacterList charactersData={this.state.charactersData} handleFilter={this.handleFilter}/>
+              </main>
+            </Route>
+          
+        </Switch>
         <Footer />
       </div>
     );
