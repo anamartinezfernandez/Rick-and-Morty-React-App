@@ -40,23 +40,18 @@ class App extends React.Component {
     this.setState({
       nameFilter: value,
     })
-    this.filteredCharacters();
   }
 
   filteredCharacters(){
     const charactersData = this.state.charactersData;
-
     const nameFilter = this.state.nameFilter;
-
-    console.log(nameFilter);
-    console.log(charactersData);
     
-    const filteredData = charactersData.filter((characterData) =>  characterData.name.toUpperCase().includes(nameFilter.toUpperCase()))
-    this.setState({
-      charactersData: filteredData,
-    })
-  }
+    const filteredData = charactersData.filter((characterData) => {return characterData.name.toUpperCase().includes(nameFilter.toUpperCase())});
+    
+      return filteredData;
+    };
 
+ 
   renderCharacterDetail(props){
     console.log("entro en detail");
     console.log(props.match.params);
@@ -65,19 +60,22 @@ class App extends React.Component {
     console.log(charactersData);
 
     const dataObject = charactersData.find((characterData) => 
-    characterData.id === props.match.params.characterId);
+    {return characterData.id === parseInt(props.match.params.characterId)});
     console.log(props);
+    console.log(dataObject);
     
       return (<CharacterDetail data={dataObject}/>)
   }
     
     /*  Aquí poner un if else para poner si el producto es encontrado o no encontrado */
- /*  Devolverle las propiedades por separado */
+   /*  Devolverle las propiedades por separado */
 
  
 
   render() {
-    
+  const filteredData = this.filteredCharacters();
+
+
     console.log(this.state);
     return (
       <div className="page">
@@ -86,7 +84,7 @@ class App extends React.Component {
             <Route exact path="/">
               <Header  />
               <main>
-                <CharacterList charactersData={this.state.charactersData} handleFilter={this.handleFilter}/>
+                <CharacterList charactersData={filteredData} handleFilter={this.handleFilter}/>
               </main>
             </Route>
           

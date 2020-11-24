@@ -11,18 +11,17 @@ class CharacterCard extends React.Component {
   render() {
 
     return (
-      <>
-        <div className="characterItem__image--container">
-          <img className="characterItem__image" src={this.props.character.photo} alt={this.props.character.name}/>
-        </div>
-        <h1 className="characterItem__name">{this.props.character.name}</h1>
+      <div className="characterCard">
         <Link to = {`/character-detail/${this.props.character.id}`}
           className= "card_btn" 
           title= "Ver el detalle del personaje">
-            Ver detalle del personaje
+          <div className="characterCard__image--container">
+            <img className="characterCard__image" src={this.props.character.photo} alt={this.props.character.name}/>
+          </div>
+          <h1 className="characterCard__name">{this.props.character.name}</h1>
+          <h2 className="characterCard__species">{this.props.character.species}</h2>
         </Link>
-        <h2 className="characterItem__species">{this.props.character.species}</h2>
-      </>
+      </div>
     );
   }
 }

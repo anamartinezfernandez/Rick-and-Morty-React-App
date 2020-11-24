@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 class CharacterDetail extends React.Component {
   constructor(props){
@@ -7,19 +8,25 @@ class CharacterDetail extends React.Component {
   }
   
   render() {
-    const{name} = this.props.data;
+    const {photo, name, species, episodes, status, origin} = this.props.data;
 
   return (
     <>
-     <h1>{name}</h1>
-    {/*   <div >
-        <img src={this.props.data.photo} alt={this.props.data.name}/>
+      <div >
+        <img src={photo} alt={name}/>
       </div>
-      <h1>{this.name}</h1>
-      <p>{this.props.data.species}</p>
-      <p>{this.props.data.name}</p> */}
-     {/*  seguiri usando props */}
-      
+      <div>
+        <h1>{name}</h1>
+        <p>Status: {status}</p>
+        <p>Species: {species}</p>
+        <p>Episodes: {episodes} </p> 
+        <p>Origin: {origin}</p>   
+      </div>
+      <Link to = "/"
+          className=""
+          title= "Volver a pantalla principal">
+            Back
+        </Link>
     </>
   )};
 }
