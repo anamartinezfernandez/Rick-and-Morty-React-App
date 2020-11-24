@@ -1,0 +1,25 @@
+.characterItem{
+  &__image{
+    width: 150px;
+    height: 200px;
+    &--container{
+      display: flex;
+      justify-content: center;
+      align-items: canter;
+      padding: 20px 0;
+    }
+  }
+  &__name{
+    border-top: 1px solid rgb(29, 26, 26);
+    border-bottom: 1px solid rgb(29, 26, 26);
+    padding: 5px;
+    text-transform: capitalize;
+    color: rgb(29, 26, 26);
+  }
+  &__species{
+    text-transform: capitalize;
+    list-style: none;
+    text-align: center;
+  }
+}
+
