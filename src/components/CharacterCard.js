@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import "../stylesheet/characterCard.scss";
 import {Link} from "react-router-dom";
 
@@ -16,7 +17,7 @@ class CharacterCard extends React.Component {
           className= "card_btn" 
           title= "Ver el detalle del personaje">
           <div className="characterCard__image--container">
-            <img className="characterCard__image" src={this.props.character.photo} alt={this.props.character.name}/>
+            <img className="characterCard__image" src={this.props.character.photo} alt={this.props.character.name} title={this.props.character.name}/>
           </div>
           <h1 className="characterCard__name">{this.props.character.name}</h1>
           <h2 className="characterCard__species">{this.props.character.species}</h2>
@@ -24,5 +25,9 @@ class CharacterCard extends React.Component {
       </div>
     );
   }
+}
+
+CharacterCard.propTypes = {
+  character: PropTypes.object,
 }
 export default CharacterCard;

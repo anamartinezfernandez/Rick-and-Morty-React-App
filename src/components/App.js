@@ -1,9 +1,11 @@
 import React from "react";
+
 import "../stylesheet/index.scss";
 import "../stylesheet/app.scss";
 import getData from "../services/getData";
 
 import Header from "./Header";
+import Filters from "./Filters";
 import Footer from "./Footer";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
@@ -33,6 +35,8 @@ class App extends React.Component {
       
     })
   )}
+  
+
 
   handleFilter(data){
     console.log("app me están llamando filter", data.value);
@@ -46,36 +50,40 @@ class App extends React.Component {
     const charactersData = this.state.charactersData;
     const nameFilter = this.state.nameFilter;
     
-    const filteredData = charactersData.filter((characterData) => {return characterData.name.toUpperCase().includes(nameFilter.toUpperCase())});
+    const filterCharacters = charactersData.filter((characterData) => {
+      return characterData.name.toUpperCase().includes(nameFilter.toUpperCase())
+    });
     
-      return filteredData;
-    };
-
- 
+    filterCharacters.sort(function sortByName(a, b) {
+      if (a.name < b.name) {
+        //a will come before b
+        return -1;
+      } 
+      if (a.name > b.name) {
+        //b will come before a
+        return 1;
+      }
+      // when a equals b:
+      return 0;
+    });
+    return filterCharacters;
+  };
+    
+  
   renderCharacterDetail(props){
-    console.log("entro en detail");
-    console.log(props.match.params);
-    console.log(props.match.params.characterId);
     const charactersData = this.state.charactersData;
     console.log(charactersData);
 
-    const dataObject = charactersData.find((characterData) => 
+    const dataClickedCharacter = charactersData.find((characterData) => 
     {return characterData.id === parseInt(props.match.params.characterId)});
-    console.log(props);
-    console.log(dataObject);
-    
-      return (<CharacterDetail data={dataObject}/>)
+      return (<CharacterDetail data={dataClickedCharacter}/>)
   }
-    
-    /*  Aquí poner un if else para poner si el producto es encontrado o no encontrado */
-   /*  Devolverle las propiedades por separado */
 
- 
-
+  
   render() {
-  const filteredData = this.filteredCharacters();
-
-
+    const filteredData = this.filteredCharacters();
+    const nameFilter= this.state.nameFilter;
+   
     console.log(this.state);
     return (
       <div className="page">
@@ -84,7 +92,8 @@ class App extends React.Component {
             <Route exact path="/">
               <Header  />
               <main>
-                <CharacterList charactersData={filteredData} handleFilter={this.handleFilter}/>
+                <Filters handleFilter={this.handleFilter} nameFilter={nameFilter}/>
+                <CharacterList charactersData={filteredData} />
               </main>
             </Route>
           
@@ -94,4 +103,8 @@ class App extends React.Component {
     );
   }
 }
+
+
+
+
 export default App;

@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import CharacterCard from "./CharacterCard";
-import Filters from "./Filters";
 import "../stylesheet/characterList.scss";
 
 
@@ -20,14 +20,12 @@ class CharacterList extends React.Component {
     })
     return (
       <>
-        <div> 
-          <Filters handleFilter={this.props.handleFilter}/>
-        </div>
-        <div>
-          <ul className="characterList">{characters}</ul>
-        </div>
+        <ul className="characterList">{characters}</ul>
       </>
     );
   }
+}
+CharacterList.propTypes = {
+  charactersData: PropTypes.arrayOf(PropTypes.object)
 }
 export default CharacterList;
