@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from "prop-types";
 import CharacterCard from "./CharacterCard";
 import CharacterNotFound from "./CharacterNotFound";
-import "../stylesheet/characterList.scss";
 
 const CharacterList = (props) => {
 
   const characters = props.charactersData.map((character) => {
-    /* console.log(character) */;
     return(
-      <li key={character.id} className= "characterList__item">
+      <li key={character.id} className= "character__search--list-item">
         <CharacterCard character={character}/>
       </li>
     )
@@ -23,9 +21,9 @@ const CharacterList = (props) => {
     );
 
   return (
-    <section className="character__results">
+    <section className="character__search">
       {characterNotFound}
-      <ul className="characterList">{characters}</ul>
+      <ul className="character__search--list">{characters}</ul>
     </section>
   );
 };

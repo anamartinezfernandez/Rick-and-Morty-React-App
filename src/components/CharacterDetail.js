@@ -28,24 +28,30 @@ const CharacterDetail = (props) => {
   };
 
   return (
-    <section className="card">
-      <article>
+    <section className="detailCard">
+      <article className="detailCard__details">
         <div >
-          <img src={photo} alt={name}/>
+          <img className="detailCard__details--photo"src={photo} alt={name}/>
         </div>
-        <div>
-          <h1>{name}</h1>
-          <p>Status: {renderIconStatus()}{status}</p>
-          <p>Species: {renderIconSpecies()}{species}</p>
-          <p>Episodes: {episodes} </p> 
-          <p>Origin: {origin}</p>   
-        </div>
-        <Link 
+        <div className="detailCard__details--wrapper">
+          <h1 className="detailCard__details--name">{name}</h1>
+          <ul className="detailCard__details--list">
+            <li className="detailCard__details--item">
+              <span className="detailCard__details--item-info">Status: </span>{status} {renderIconStatus()}</li>
+            <li className="detailCard__details--item">
+              <span className="detailCard__details--item-info">Species: </span>{species} {renderIconSpecies()}</li>
+            <li className="detailCard__details--item">
+              <span className="detailCard__details--item-info">Episodes: </span> {episodes} </li> 
+            <li className="detailCard__details--item">
+              <span className="detailCard__details--item-info">Origin: </span> {origin} </li>   
+          </ul>
+          <Link 
           to = "/"
-          className=""
+          className="detailCard__details--link"
           title= "Volver a pantalla principal">
             Back
         </Link>
+        </div>
       </article>
     </section>
   );

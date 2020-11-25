@@ -1,13 +1,12 @@
 import React from 'react';
-import "../stylesheet/footer.scss";
 
 
 class Footer extends React.Component {
   render() {
     return (
-      <>
-        <small className= "page__footer">&copy; Ana Martínez Fernández</small>
-      </>
+      <footer className="footer" role="contentinfo">
+        <small className= "footer__small">&copy; 2020. Ana Martínez Fernández</small>
+      </footer>
     );
   }
 }

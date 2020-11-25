@@ -1,9 +1,7 @@
 import React from "react";
-
-import "../stylesheet/index.scss";
 import "../stylesheet/app.scss";
-import getData from "../services/getData";
 
+import getData from "../services/getData";
 import Header from "./Header";
 import Filters from "./Filters";
 import Footer from "./Footer";
@@ -16,7 +14,6 @@ import { Route, Switch } from "react-router-dom";
 class App extends React.Component {
   constructor(props){
     super(props);
-    console.log(this.props);
       this.state = {
         charactersData: [],
         nameFilter: ""
@@ -28,7 +25,6 @@ class App extends React.Component {
 
   componentDidMount(){
     getData.getDataFromApi().then((cleanData => {
-      console.log(cleanData);
       this.setState({
         charactersData: cleanData
       });
@@ -36,7 +32,6 @@ class App extends React.Component {
     })
   )}
   
-
 
   handleFilter(data){
     console.log("app me están llamando filter", data.value);
@@ -56,14 +51,11 @@ class App extends React.Component {
     
     filterCharacters.sort(function sortByName(a, b) {
       if (a.name < b.name) {
-        //a will come before b
         return -1;
       } 
       if (a.name > b.name) {
-        //b will come before a
         return 1;
       }
-      // when a equals b:
       return 0;
     });
     return filterCharacters;
@@ -72,7 +64,6 @@ class App extends React.Component {
   
   renderCharacterDetail(props){
     const charactersData = this.state.charactersData;
-    console.log(charactersData);
 
     const dataClickedCharacter = charactersData.find((characterData) => 
     {return characterData.id === parseInt(props.match.params.characterId)});
@@ -80,10 +71,9 @@ class App extends React.Component {
     if (dataClickedCharacter !== undefined){
       return (
         <>
-          <Header />
           <CharacterDetail data={dataClickedCharacter}/>
-        </>)
-    } else {
+        </>
+    )} else {
       return <p>"The character you are looking for doesn't exist"</p>
     }
   }
@@ -95,17 +85,16 @@ class App extends React.Component {
    
     console.log(this.state);
     return (
-      <div className="page">
+      <div className="app">
+        <Header  />
         <Switch>
             <Route path="/character-detail/:characterId" render={this.renderCharacterDetail} ></Route>
             <Route exact path="/">
-              <Header  />
-              <main>
+              <main className="main" role="main">
                 <Filters handleFilter={this.handleFilter} nameFilter={nameFilter}/>
                 <CharacterList charactersData={filteredData} nameFilter={nameFilter}/>
               </main>
             </Route>
-          
         </Switch>
         <Footer />
       </div>

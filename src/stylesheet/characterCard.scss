@@ -1,26 +1,33 @@
-.characterCard{
+.character__card{
+  &--link{
+    text-decoration: none;
+  }
 
-  &__image{
-    width: 200px;
-    height: 200px;
-    &--container{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  &--image{
+    width: 90%;
+    border-radius: 10px;
+    &-container{
       padding: 20px 0;
+
     }
   }
-  &__name{
-    border-top: 1px solid rgb(29, 26, 26);
-    border-bottom: 1px solid rgb(29, 26, 26);
+  &--name{
+    border-top: 4px solid $fontPrimaryColor;
+    border-bottom: 4px solid$fontPrimaryColor;
     padding: 5px;
-    text-transform: capitalize;
-    color: rgb(29, 26, 26);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    color:$fontPrimaryColor;
   }
-  &__species{
-    text-transform: capitalize;
+  &--species{
+    text-transform: uppercase;
     list-style: none;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: $fontPrimaryColor;
   }
 }
 

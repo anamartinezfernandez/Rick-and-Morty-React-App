@@ -1,10 +1,11 @@
 ## Rick and Morty
 
-El proyecto consiste en desarrollar una página web con React.
+El proyecto consiste en desarrollar una página web con la **librería React**.
+La maquetación se ha realizado con HTML y CSS (SASS). 
 
 1. Listado de personajes y filtrado: 
 
-La web contiene un listado de personajes de Rick and Morty, que podemos **filtrar** por el nombre del personaje, con una tarjeta para cada uno con información relevante, como el nombre, especie y una imagen. 
+La web contiene un listado de personajes de Rick and Morty, que podemos **filtrar** por el nombre del personaje, y acceder a una ficha con detalles del mismo. 
 
 La información de los personajes la obtenemos del servicio de https://rickandmortyapi.com/documentation/#get-all-characters que nos devuelve información sobre los primeros 20 personajes de la serie. 
 

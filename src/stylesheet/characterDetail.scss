@@ -1,0 +1,36 @@
+
+.detailCard__details {
+  position: relative;
+  left: 30%;
+  background-color: $tertiaryColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  padding: 20px 10px;
+  border-radius: 10px;
+  &--photo{
+    width: 200px;
+  }
+  &--list {
+    margin-bottom: 20px;
+    padding: 0 0 0 36px;
+    text-align: left; 
+    list-style: none;
+  }
+  &--name{
+    color: $fontSecondaryColor;
+    margin-bottom: 10px;
+  }
+  &--item-info{
+    color: $fontSecondaryColor;
+  }
+  &--link{
+    padding: 6px;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-decoration: none;
+    color: $fontSecondaryColor;
+    margin-top: 20px;
+  }
+}
