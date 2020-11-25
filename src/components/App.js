@@ -76,7 +76,16 @@ class App extends React.Component {
 
     const dataClickedCharacter = charactersData.find((characterData) => 
     {return characterData.id === parseInt(props.match.params.characterId)});
-      return (<CharacterDetail data={dataClickedCharacter}/>)
+
+    if (dataClickedCharacter !== undefined){
+      return (
+        <>
+          <Header />
+          <CharacterDetail data={dataClickedCharacter}/>
+        </>)
+    } else {
+      return <p>"The character you are looking for doesn't exist"</p>
+    }
   }
 
   
