@@ -8,21 +8,21 @@ const CharacterDetail = (props) => {
   
 
   const renderIconStatus = () => {
-    if (props.data.status === "Alive") {
+    if (`${status} === "Alive"`) {
       return <i className="card__details--icon fas fa-heartbeat"></i>;
-    } else if (props.data.status === "Dead") {
+    } else if (`${status} === "Dead"`) {
       return <i className="card__details--icon fas fa-skull-crossbones"></i>;
-    } else if (props.data.status === "unknown") {
+    } else if (`${status} === "unknown"`) {
       return <i className="card__details--icon fas fa-question"></i>;
     }
   };
 
   const renderIconSpecies = () => {
-    if (props.data.species=== "Human") {
+    if (`${species} === "Human"`) {
       return <i className="card__details--icon fas fa-female"></i>;
-    } else if (props.data.species === "Alien") {
+    } else if (`${species} === "Alien"`) {
       return <i className="card__details--icon fab fa-reddit-alien"></i>;
-    } else if (props.data.species === "unknown") {
+    } else if (`${species} === "unknown"`) {
       return <i className="card__details--icon fas fa-question"></i>;
     }
   };

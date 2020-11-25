@@ -93,7 +93,7 @@ class App extends React.Component {
               <Header  />
               <main>
                 <Filters handleFilter={this.handleFilter} nameFilter={nameFilter}/>
-                <CharacterList charactersData={filteredData} />
+                <CharacterList charactersData={filteredData} nameFilter={nameFilter}/>
               </main>
             </Route>
           

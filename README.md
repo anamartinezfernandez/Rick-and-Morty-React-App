@@ -10,16 +10,17 @@ La información de los personajes la obtenemos del servicio de https://rickandmo
 
 2. Componentes del listado de personajes: 
 
-Se han creado los situientes componentes: 
+Como práctica se ha trabajado con componentes funcionales y componentes de clase. Se han creado los situientes componentes: 
 
   •Componente para los filtros
-  •Componente para el listado
+  •Componente para el listado de personajes
   •Componente para la tarjeta de cada personaje del listado
   •Componente para el detalle de cada personaje
+  •Componente para mensaje de alerta cuando la búsqueda no da resultados
+  •Componentes para el footer y el header de la página
 
 3. Detalle de personajes: 
 
-Al hacer clic sobre la tarjeta de un personaje, su información aparece a pantalla completa. Para hacer esto usamos **rutas y React router**. 
+Al hacer clic sobre la tarjeta de un personaje, su información aparece a pantalla completa. Para ello hacemos uso de **rutas y React router**. 
 
-El enlace a GitHub Pages esté en la página página principal del repositorio, en la parte superior, al lado
-de la descripción.
+El enlace a GitHub Pages esté en la página página principal del repositorio, en la parte superior, al lado de la descripción.
