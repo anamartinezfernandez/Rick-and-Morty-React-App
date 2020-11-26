@@ -16,7 +16,8 @@ class App extends React.Component {
     super(props);
       this.state = {
         charactersData: [],
-        nameFilter: ""
+        nameFilter: "",
+        typeFilter: ""
       };
     this.handleFilter = this.handleFilter.bind(this);
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
@@ -35,19 +36,25 @@ class App extends React.Component {
 
   handleFilter(data){
     console.log("app me están llamando filter", data.value);
-    const {value} = data; //destructuring
+   /*  const {value, key} = data;  *///destructuring
+    if(data.key === "nameInput"){
     this.setState({
-      nameFilter: value,
-    })
+      nameFilter: data.value,
+    }) } else if (data.key === "typeInput"){
+      this.setState({
+        typeFilter:data.value
+      })
+    }
   }
 
   filteredCharacters(){
     const charactersData = this.state.charactersData;
     const nameFilter = this.state.nameFilter;
+    const typeFilter = this.state.typeFilter;
     
     const filterCharacters = charactersData.filter((characterData) => {
       return characterData.name.toUpperCase().includes(nameFilter.toUpperCase())
-    });
+    }).filter((characterData) => {return characterData.type.toUpperCase().includes(typeFilter.toUpperCase())});
     
     filterCharacters.sort(function sortByName(a, b) {
       if (a.name < b.name) {
@@ -82,6 +89,7 @@ class App extends React.Component {
   render() {
     const filteredData = this.filteredCharacters();
     const nameFilter= this.state.nameFilter;
+    const typeFilter= this.state.typeFilter;
    
     console.log(this.state);
     return (
@@ -91,7 +99,7 @@ class App extends React.Component {
             <Route path="/character-detail/:characterId" render={this.renderCharacterDetail} ></Route>
             <Route exact path="/">
               <main className="main" role="main">
-                <Filters handleFilter={this.handleFilter} nameFilter={nameFilter}/>
+                <Filters handleFilter={this.handleFilter} nameFilter={nameFilter} typeFilter={typeFilter}/>
                 <CharacterList charactersData={filteredData} nameFilter={nameFilter}/>
               </main>
             </Route>

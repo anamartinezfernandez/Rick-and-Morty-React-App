@@ -13,7 +13,8 @@ const getDataFromApi = () => {
           species: itemData.species,
           photo: itemData.image,
           origin: itemData.origin.name,
-          episodes: itemData.episode.length
+          episodes: itemData.episode.length,
+          type: itemData.type
         };
       });
       console.log(cleanData);

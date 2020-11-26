@@ -24,6 +24,7 @@ class CharacterCard extends React.Component {
           </div>
           <h1 className="character__card--name">{this.props.character.name}</h1>
           <h2 className="character__card--species">{this.props.character.species}</h2>
+          <h2 className="character__card--type">{this.props.character.type}</h2>
         </Link>
       </article>
     );
