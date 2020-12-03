@@ -1,21 +1,25 @@
 
 .detailCard__details {
-  position: relative;
-  left: 30%;
-  background-color: $tertiaryColor;
+  background-color: $quaternaryColor;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
+  width: 200px;
   padding: 20px 10px;
   border-radius: 10px;
+  @media all and (min-width: 768px) {
+    width: 350px;
+  }
   &--photo{
-    width: 200px;
+    width: 180px;
+  }
+  @media all and (min-width: 768px) {
+    width: 300px;
   }
   &--list {
     margin-bottom: 20px;
-    padding: 0 0 0 36px;
-    text-align: left; 
+    text-align: center; 
     list-style: none;
   }
   &--name{
@@ -32,5 +36,9 @@
     text-decoration: none;
     color: $fontSecondaryColor;
     margin-top: 20px;
+    &-image{
+      height: 80px;
+      width: auto;
+    }
   }
 }

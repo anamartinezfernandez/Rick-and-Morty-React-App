@@ -1,6 +1,10 @@
 .character{
   &__search--error{
-    font-size: 30px;
+    font-size: 18px;
     color: white;
+    padding: 30px;
+    &-image{
+      height: 200px;
+    }
   }
 }

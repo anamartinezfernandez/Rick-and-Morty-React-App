@@ -1,4 +1,5 @@
 import React from 'react';
+import back from "../images/back.png"
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
@@ -37,9 +38,9 @@ const CharacterDetail = (props) => {
           <h1 className="detailCard__details--name">{name}</h1>
           <ul className="detailCard__details--list">
             <li className="detailCard__details--item">
-              <span className="detailCard__details--item-info">Status: </span>{status} {renderIconStatus()}</li>
+              <span className="detailCard__details--item-info">Status: </span> {renderIconStatus()}</li>
             <li className="detailCard__details--item">
-              <span className="detailCard__details--item-info">Species: </span>{species} {renderIconSpecies()}</li>
+              <span className="detailCard__details--item-info">Species: </span> {renderIconSpecies()}</li>
             <li className="detailCard__details--item">
               <span className="detailCard__details--item-info">Episodes: </span> {episodes} </li> 
             <li className="detailCard__details--item">
@@ -49,7 +50,12 @@ const CharacterDetail = (props) => {
           to = "/"
           className="detailCard__details--link"
           title= "Volver a pantalla principal">
-            Back
+            <img 
+            className = "detailCard__details--link-image"
+            src={back} 
+            title="Image return" 
+            alt=" return"
+            />
         </Link>
         </div>
       </article>

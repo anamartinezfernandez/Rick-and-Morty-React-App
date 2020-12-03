@@ -24,7 +24,7 @@ class Filters extends React.Component {
   render() {
     return (
       <form className="form" role="search" onSubmit={this.handleFormSubmit}>
-        <label className="form__label" htmlFor="textInput">Find your favourite character: </label>
+        <label className="form__label" htmlFor="textInput">Search your character: </label>
         <input className="form__input"  type="text" id="textInput" name="text" placeholder="ej: Beth" value={this.props.nameFilter} onChange={this.handleFilter}/>
       </form>
     );
